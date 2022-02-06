@@ -1,0 +1,81 @@
+<!-- homepage layout for reference -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <!-- header with title & navbar -->
+    <nav class="navbar is-link is-fixed-top is-size-6">
+        <!-- nav title-->
+        <div class="navbar-brand">
+            <a class="navbar-item is-size-4">Metayuck Tech Blog</a>
+        </div>
+        <!-- navigation menu-->
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <!-- Home button -->
+                <a class="navbar-item" href="#home">Home</a>
+                <!-- Dashboard button -->
+                <a class="navbar-item" href="#dashboard">Dashboard</a>
+                <!-- Logout button -->
+                <a class="navbar-item" href="#logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <!-- main container with blog posts -->
+    <section class="section">
+        <div class="columns is-flex-wrap-wrap">
+            <!-- each blog post to expand full width of screen -->
+            <div class="column is-12">
+                <!-- sample blog 1 -->
+                <div class="card m-4">
+                    <!-- title of post & poster name & time -->
+                    <header class="card-header has-background-light">
+                        <p class="card-header-title">Blog Post 1</p>
+                        <p class="m-2 is-flex is-align-items-center">User 1 at 9am</p>
+                    </header>
+                    <!-- post text content -->
+                    <div class="card-content">
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consequatur temporibus eius laudantium illum necessitatibus dicta optio minima enim, sint repudiandae molestiae molestias doloribus, inventore distinctio nihil omnis officia voluptate.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-12">
+                <!-- sample blog 1 -->
+                <div class="card m-4">
+                    <!-- title of post & poster name & time -->
+                    <header class="card-header has-background-light">
+                        <p class="card-header-title">Blog Post 2</p>
+                        <p class="m-2 is-flex is-align-items-center">User 2 at 9am</p>
+                    </header>
+                    <!-- post text content -->
+                    <div class="card-content">
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consequatur temporibus eius laudantium illum necessitatibus dicta optio minima enim, sint repudiandae molestiae molestias doloribus, inventore distinctio nihil omnis officia voluptate.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-12">
+                <!-- sample blog 1 -->
+                <div class="card m-4">
+                    <!-- title of post & poster name & time -->
+                    <header class="card-header has-background-light">
+                        <p class="card-header-title">Blog Post 3</p>
+                        <p class="m-2 is-flex is-align-items-center">User 3 at 9am</p>
+                    </header>
+                    <!-- post text content -->
+                    <div class="card-content">
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consequatur temporibus eius laudantium illum necessitatibus dicta optio minima enim, sint repudiandae molestiae molestias doloribus, inventore distinctio nihil omnis officia voluptate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
