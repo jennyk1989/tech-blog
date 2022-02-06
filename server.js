@@ -2,8 +2,9 @@ const path = require('path'); //import path module
 const express = require('express'); //import express module
 const exphbs = require('express-handlebars'); //import handlebars template engine
 const sequelize = require('./config/connection'); 
+const routes = require('./controllers'); 
 
-const app = express();
+const app = express(); //creates express server
 const PORT = process.env.PORT || 3006;
 
 //adding template engine
