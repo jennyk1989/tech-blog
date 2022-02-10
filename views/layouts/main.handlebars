@@ -13,9 +13,37 @@ and the option to log in --}}
 </head>
 <body>
     <div>
+        <header>
+            <nav class="navbar is-link is-fixed-top">
+                <!-- nav title-->
+                <div class="navbar-brand">
+                    <a class="navbar-item is-size-4">Metayuck Tech Blog</a>
+                </div>
+                <!-- navigation menu-->
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                        {{#if userLoggedIn}} 
+                        <!-- Home button -->
+                        <a class="navbar-item" href="#home">Home</a>
+                        <!-- Dashboard button -->
+                        <a class="navbar-item" href="#dashboard">Dashboard</a>
+                        <!-- Logout button -->
+                        <a class="navbar-item" href="#logout">Logout</a>
+                        {{else}}
+                        <!-- Login button -->
+                        <a class="navbar-item" href="#login">Login</a>
+                        {{/if}}
+                    </div>
+                </div>
+            </nav>
+        </header>
         <main>
             {{{ body }}}
         </main>
     </div>
+    {{!-- use logout in js file if user is logged in so user can logout if needed--}}
+    {{#if userLoggedIn}}
+    <script scr="public/javascript/logout.js"
+    {{/if}}
 </body>
 </html>
