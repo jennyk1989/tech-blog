@@ -20,7 +20,7 @@ Post.init(
                 len: [3] //at least 3 characters long
             }
         },
-        text: {
+        post_text: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
