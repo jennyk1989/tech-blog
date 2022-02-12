@@ -10,7 +10,7 @@ class User extends Model { //User model inherits Sequelize's Model functionality
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
-};
+}
 
 // create columns (id, username, & password) for the User model
 User.init(
@@ -54,4 +54,4 @@ User.init(
     }
 )
 
-model.exports = User;
+module.exports = User;

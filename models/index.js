@@ -8,19 +8,9 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 
-// user can make many comments
-User.hasMany(Comment, {
-    foreignKey: 'user_id'
-});
-
 // posts can only be authored by one user
 Post.belongsTo(User, { 
     foreignKey: 'user_id'
-});
-
-// posts can have many comments
-Post.hasMany(Comment, {
-    foreignKey: 'post_id'
 });
 
 // comments can only be authored by one user
@@ -30,6 +20,16 @@ Comment.belongsTo(User, {
 
 // a comment can only apply to one post
 Comment.belongsTo(Post, {
+    foreignKey: 'post_id'
+});
+
+// user can make many comments
+User.hasMany(Comment, {
+    foreignKey: 'user_id'
+});
+
+// posts can have many comments
+Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
 

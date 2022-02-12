@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create Post model that inherits Sequelize Model class
-class Post extends Model {};
+class Post extends Model {}
 
 // create columns for Post model (id, title of post, text of post, user who posted)
 Post.init(
@@ -17,14 +17,14 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [3] //at least 3 characters long
+                len: [1] //at least 1 character long
             }
         },
         post_text: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [3] //at least 3 characters long
+                len: [1]
             }
         },
         user_id: {
@@ -37,11 +37,10 @@ Post.init(
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'post'
     }
 );
 
-model.exports = Post;
+module.exports = Post;
