@@ -3,7 +3,7 @@
 const { User, Post, Comment } = require('../models');
 //create router as an Express module
 const router = require('express').Router();
-//connect to sequelize`
+//connect to sequelize
 const sequelize = require('../config/connection');
 
 // homepage rendering
