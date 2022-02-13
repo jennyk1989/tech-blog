@@ -1,1 +1,7 @@
-{{!-- html for the homepage --}}
+<div class="post-list">
+    {{!-- "posts" from home-routes.js via res.render(); "post" = placeholder variable name --}}
+    {{#each posts as |post|}}
+        {{!-- "post-info" = partial file name; "post" = object that's passed into the partial --}}
+        {{> post-info post }}
+    {{/each}}
+</div>

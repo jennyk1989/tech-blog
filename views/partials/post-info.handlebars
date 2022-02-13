@@ -1,1 +1,19 @@
 {{!-- html for each post here --}}
+<div class="column is-12">
+    <div class="card m-3">
+        <!-- title of post & poster name & time -->
+        <header class="card-header has-background-link-light">
+            {{!-- post's title is inserted here: --}}
+            <p class="card-header-title">{{ title }}</p>
+            {{!-- user's username and date of post (via helper) inserted here: --}}
+            <p class="m-2 is-flex is-align-items-center">
+                Authored by {{ user.username }} on {{ format_date created_at }}
+            </p>
+        </header>
+        <!-- post text content -->
+        <div class="card-content">
+            {{!-- text content of post inserted here: --}}
+            <p>{{ post_text }}</p>
+        </div>
+    </div>
+</div>

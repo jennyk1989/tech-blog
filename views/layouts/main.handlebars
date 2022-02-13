@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
 </head>
+
 <body>
-    <div>
+
+    {{!-- div to act as a wrapper --}}
+    <div> 
+        {{!-- Navbar with Title and Menu where login & logout buttons are rendered conditionally --}}
         <header>
             <nav class="navbar is-link is-fixed-top">
                 <!-- nav title-->
@@ -17,28 +21,45 @@
                 <!-- navigation menu-->
                 <div class="navbar-menu">
                     <div class="navbar-end">
+                        {{!-- if user logged in, logout link should be available --}}
                         {{#if loggedIn}} 
-                        <!-- Home button -->
-                        <a class="navbar-item" href="#home">Home</a>
-                        <!-- Dashboard button -->
-                        <a class="navbar-item" href="#dashboard">Dashboard</a>
-                        <!-- Logout button -->
+                        <!-- Home link -->
+                        <a class="navbar-item" href="/">Home</a>
+                        <!-- Dashboard link -->
+                        <a class="navbar-item" href="/dashboard">Dashboard</a>
+    {{!-- **********************************  --}}
+                        <!-- Logout link -->
                         <a class="navbar-item" href="#logout">Logout</a>
+                        {{!-- not loggin in -> only login link available --}}
                         {{else}}
-                        <!-- Login button -->
-                        <a class="navbar-item" href="#login">Login</a>
+                        <!-- Login link -->
+                        <a class="navbar-item" href="/login">Login</a>
                         {{/if}}
                     </div>
                 </div>
             </nav>
         </header>
+
+        {{!-- where main content renders (posts) as html --}}
         <main>
-            {{{ body }}}
+            <section class="section mt-4">
+                <div class="columns is-flex-wrap-wrap">
+                    {{!-- homepage.hbs inserts here --}}
+                    {{{ body }}}
+                </div>
+            </section>
         </main>
+
     </div>
-    {{!-- use logout in js file if user is logged in so user can logout if needed--}}
+
+
+    {{!-- if user is logged in, need to make logout fx available --}}
     {{#if loggedIn}}
-    <script scr="public/javascript/logout.js"
+    <script scr="public/javascript/logout.js"></script>
     {{/if}}
+
+    {{!-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
+
 </html>
