@@ -6,7 +6,7 @@ const router = require('express').Router();
 //connect to sequelize
 const sequelize = require('../config/connection');
 
-// homepage rendering (user not logged in)
+// route for homepage with all posts (user not logged in)
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
@@ -38,11 +38,11 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     })
 })
-// after login page
+// route for homepage with user logged in
 
-// signing up page
+// route for showing sign up page
 
-// see post up close page
+// route for page showing one post 
 
 
 // export router module to be loaded by controllers/index.js
