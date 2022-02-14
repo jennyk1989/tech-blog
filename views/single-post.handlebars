@@ -1,1 +1,32 @@
 {{!-- html for a user adding a single post --}}
+{{> post-info post}} 
+{{#if loggedIn}}
+<div class="column is-12" id="comment-form">
+    <div class="card m-3">
+        <header class="card-header has-background-link-light">
+            <p class="card-header-title"></p>
+        </header>
+        <!-- content input -->
+        <div class="card-content">
+            <div class="field">
+                <label class="label">Comment</label>
+                <div class="control">
+                    <textarea class="textarea" id="comment-body" placeholder="Post comment here"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- create button -->
+        <div class="card-content">
+            <div class="field">
+                <button class="button is-link" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{> comment post.comments}} 
+
+{{#if loggedIn}}
+<script src="/public/javascript/comment.js"></script>
+{{/if}}
