@@ -12,4 +12,4 @@ router.use('/dashboard', dashboardRoutes);
 router.use('/', homeRoutes);
 
 // export the router module to the main app
-module.exports = router
+module.exports = router;

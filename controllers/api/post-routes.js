@@ -1,18 +1,16 @@
 //create router as an Express module
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 // import models
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-const sequelize = require('../../config/connection');
 
 //route to get all posts
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
+        //Post table columns + created_at (from post-info.hbs)
+        attributes: [ 
+            'id', 'title', 'post-text', 'created_at'
         ],
         //want posts to show in order (recent posts on bottom)
         order: [['created_at', 'DESC']],
@@ -44,12 +42,8 @@ router.get('/:id', (req, res) => {
         where: {
            id: req.params.id 
         },
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
-        ],
+        //Post table columns + created_at (from post-info.hbs)
+        attributes: ['id', 'title', 'post-text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
@@ -81,16 +75,18 @@ router.get('/:id', (req, res) => {
 
 // route to add a post
 router.post('/', withAuth, (req, res) => {
-    Post.create({
-        title: req.body.title,
-        post_text: req.body.post_text,
-        user_id: req.session.user_id
-    })
-    .then(data => res.json(data))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+    if (req.session) {
+        Post.create({
+            title: req.body.title,
+            post_text: req.body.post_text,
+            user_id: req.session.user_id
+        })
+        .then(data => res.json(data))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    };
 });
 
 // route to update a post

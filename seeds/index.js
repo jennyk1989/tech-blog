@@ -1,18 +1,25 @@
 //index file for the seeds
 //import seeds created
-const userSeeds = require('./user-seeds');
-const postSeeds = require ('./post-seeds');
-const commentSeeds = require ('./comment-seeds');
+const seedUsers = require('./user-seeds');
+const seedPosts = require ('./post-seeds');
+const seedComments = require ('./comment-seeds');
 
 //connnect to sequelize 
 const sequelize = require('../config/connection');
 
-const allSeeds = async () => {
+const seedAll = async () => {
     await sequelize.sync({ force: true });
-    await userSeeds();
-    await postSeeds();
-    await commentSeeds();
-    process.exit(0) //exit on success
-}
+    console.log('--------------');
+    await seedUsers();
+    console.log('--------------');
 
-allSeeds();
+    await seedPosts();
+    console.log('--------------');
+
+    await seedComments();
+    console.log('--------------');
+
+    process.exit(0) //exit on success
+};
+
+seedAll();

@@ -11,12 +11,7 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
-        ],
+        attributes: ['id', 'title', 'post-text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
@@ -35,12 +30,12 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(data => {
         // creates "posts" array which contains serialized post object
-        const posts = data.map(post => post.get({ plain: true }));
+        const posts = data.map((post) => post.get({ plain: true }));
         // render the dashboard.hbs template
         res.render('dashboard', { 
             posts, //pass this "posts" object into dashboard.hbs template
             //conditionally render login/logout links based on the user's session:
-            loggedIn: true 
+            loggedIn: req.session.loggedIn 
         });
     })
     .catch(err => {
@@ -55,12 +50,7 @@ router.get('/edit/:id', (req, res) => {
         where: {
            id: req.params.id 
         },
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
-        ],
+        attributes: ['id','title','post-text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,

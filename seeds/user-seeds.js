@@ -1,7 +1,7 @@
 // seeds for adding some users
 const { User } = require('../models'); //import User model
 
-const userSeeds = () => User.bulkcreate([
+const userdata = [
     {
         username: 'JohnDoe',
         password: 'johnpass'
@@ -14,6 +14,6 @@ const userSeeds = () => User.bulkcreate([
         username: 'JoeBlow',
         password: 'joepass'
     }
-]);
-
-module.exports = userSeeds;
+];
+const seedUsers = () => User.bulkCreate(userdata, {individualHooks:true});
+module.exports = seedUsers;

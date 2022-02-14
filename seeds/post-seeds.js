@@ -1,7 +1,7 @@
 // seeds for some posts
 const { Post } = require('../models');
 
-const postSeeds = () => Post.bulkCreate([
+const postdata = [
     {
         title: 'Tech News Today',
         post_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -18,6 +18,6 @@ const postSeeds = () => Post.bulkCreate([
         user_id: 3
     },
 
-]);
-
-module.exports = postSeeds;
+];
+const seedPosts = () => Post.bulkCreate(postdata);
+module.exports = seedPosts;

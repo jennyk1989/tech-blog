@@ -9,12 +9,7 @@ const sequelize = require('../config/connection');
 // route for rendering all posts to the homepage
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
-        ],
+        attributes: ['id','title','post-text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
@@ -53,12 +48,7 @@ router.get('/post/:id', (req, res) => {
         where: {
            id: req.params.id 
         },
-        attributes: [ //Post table columns + created_at (from post-info.hbs)
-            'id',
-            'title',
-            'post-text',
-            'created_at'
-        ],
+        attributes: ['id','title','post-text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
@@ -80,10 +70,9 @@ router.get('/post/:id', (req, res) => {
             res.status(404).json({ message: 'No post found with this id'});
             return;
         }
-
-        //? serialize the data
+        // serialize the data
         const post = data.get({ plain: true});
-        //? pass data to template using post object
+        // pass data to template using post object
         res.render('single-post', {
             post,
             loggedIn: req.session.loggedIn
@@ -104,5 +93,8 @@ router.get('/login', (req, res) => {
     res.render('login'); //render the login template
 });
 
+router.get('/signup', (req, res) => {
+    res.render('signup');
+});
 // export router module to be loaded by controllers/index.js
 module.exports = router;
