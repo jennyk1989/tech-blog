@@ -1,9 +1,9 @@
 //create router as an Express module
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 // import models
-const { Post, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
-const sequelize = require('../../config/connection');
+const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // get the user's posts for the dashboard (user logged in)
 router.get('/', withAuth, (req, res) => {
