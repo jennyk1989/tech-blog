@@ -11,7 +11,7 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'title', 'post-text','created_at'],
+        attributes: ['id', 'title', 'post_text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
@@ -50,7 +50,7 @@ router.get('/edit/:id', (req, res) => {
         where: {
            id: req.params.id 
         },
-        attributes: ['id','title','post-text','created_at'],
+        attributes: ['id','title','post_text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,

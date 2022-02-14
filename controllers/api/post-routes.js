@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     Post.findAll({
         //Post table columns + created_at (from post-info.hbs)
         attributes: [ 
-            'id', 'title', 'post-text', 'created_at'
+            'id', 'title', 'post_text', 'created_at'
         ],
         //want posts to show in order (recent posts on bottom)
         order: [['created_at', 'DESC']],
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
            id: req.params.id 
         },
         //Post table columns + created_at (from post-info.hbs)
-        attributes: ['id', 'title', 'post-text','created_at'],
+        attributes: ['id', 'title', 'post_text','created_at'],
         include: [ //also wants to include Comments on the post and author of the post
             {
                 model: Comment,
