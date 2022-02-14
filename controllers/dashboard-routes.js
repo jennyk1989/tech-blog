@@ -50,7 +50,7 @@ router.get('/', withAuth, (req, res) => {
 })
 
 // route for rendering page where user can edit post
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', (req, res) => {
     Post.findOne({
         where: {
            id: req.params.id 
