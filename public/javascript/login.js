@@ -1,4 +1,4 @@
-// response to login in button being clicked
+// response to login button being clicked
 async function loginHandler(event) {
     event.preventDefault();
     // grab data from the login form and put in variables
@@ -18,14 +18,12 @@ async function loginHandler(event) {
         });
 
         if(response.ok) {
-            document.location.replace('/dashboard'); // if sign up successful, go to the dashboard
+            document.location.replace('/dashboard'); // if login successful, go to the dashboard
         } else {
             alert(response.statusText);
         }
     }
 }
 
-
 //? listener for login button being clicked:
 document.querySelector('.login-form').addEventListener('submit', loginHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupHandler);
