@@ -8,7 +8,7 @@ const helpers = require('./utils/helpers'); // import helpers
 
 // create express server
 const app = express(); //creates express server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // create session
 const sess = {
