@@ -20,6 +20,9 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.15.0"
   },
+  "engines": {
+    "node": "16.13.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jennyk1989/tech-blog.git"
