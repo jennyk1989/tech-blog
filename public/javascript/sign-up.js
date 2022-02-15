@@ -27,4 +27,4 @@ async function signupHandler(event) {
 
 
 //? listener for signup button being clicked:
-document.querySelector('.signup-form').addEventListener('submit', signupHandler);
+document.querySelector('#signup-form').addEventListener('submit', signupHandler);

@@ -2,7 +2,6 @@
 const router = require('express').Router();
 //import models
 const { Comment, Post, User } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 // route to get all users
 router.get('/', (req, res) => {
@@ -107,7 +106,7 @@ router.post('/login', (req, res) => {
     });
 });
 // route for user to logout 
-router.post('/logout', withAuth, (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) { //check for a session & if exists destroy it
         req.session.destroy(() => {
             res.status(204).end();//send 204 status code if session successfully destroyed
@@ -117,7 +116,7 @@ router.post('/logout', withAuth, (req, res) => {
     }
 });
 // route to update a user
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     User.update(req.body, { //passing in req.body to only update what passes thru
         individualHooks: true,
         where: {
@@ -137,7 +136,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 // route to delete a user 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

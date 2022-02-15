@@ -12,8 +12,6 @@ router.get('/', (req, res) => {
         attributes: [ 
             'id', 'title', 'post_text', 'created_at'
         ],
-        //want posts to show in order (recent posts on bottom)
-        order: [['created_at', 'DESC']],
         include: [
             //show the comments
             {
