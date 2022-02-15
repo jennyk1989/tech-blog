@@ -9,17 +9,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "connect-session-sequelize": "^7.1.2",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.2",
-    "express-handlebars": "^6.0.2",
-    "express-session": "^1.17.2",
-    "handlebars": "^4.7.7",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.15.0"
-  },
   "engines": {
     "node": "16.13.2"
   },
@@ -31,5 +20,17 @@
     "url": "https://github.com/jennyk1989/tech-blog/issues"
   },
   "homepage": "https://github.com/jennyk1989/tech-blog#readme",
-  "description": ""
+  "description": "![badge](https://img.shields.io/badge/License-MIT-blue) ## Description The assignment is to build a blog about technology news using Node.js, Sequelize, MySQL, Express.js, and Sessions.js in the Model-View-Controller (MVC) design pattern. ## Table of Contents  * [Installation](#Installation) * [Usage](#Usage) * [License](#License) * [Contribution](#Contribution) * [Tests](#Tests) * [Questions](#Questions) ## Installation 📥 * Clone repository * Install required npm packages (mysql2, inquirer, console.table) * Run the application (npm start) ## Usage ### Screenshots",
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.1"
+  }
 }
